@@ -1,0 +1,216 @@
+:root {
+    --ts-naranja: #F37021;
+    --ts-naranja-hover: #D65A10;
+    --ts-celeste: #00C3E3;
+    --ts-fondo: #F3F4F6;
+    --ts-oscuro: #242629;
+    --ts-blanco: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--ts-fondo);
+    color: var(--ts-oscuro);
+    font-family: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+}
+
+.marco-app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Barra lateral inspirada en eShop */
+.menu-lateral {
+    width: 255px;
+    background: linear-gradient(180deg, var(--ts-naranja) 0%, #E65F14 100%);
+    color: var(--ts-blanco);
+    position: fixed;
+    inset: 0 auto 0 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1020;
+    box-shadow: 4px 0 18px rgba(0, 0, 0, 0.08);
+}
+
+.marca-lateral {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 22px 20px;
+    color: var(--ts-blanco);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.35rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.marca-icono {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--ts-blanco);
+    color: var(--ts-naranja);
+    display: grid;
+    place-items: center;
+    font-size: 1.25rem;
+}
+
+.lista-enlaces {
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.enlace-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    font-weight: 700;
+    border: 3px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+
+.enlace-menu:hover {
+    background: rgba(255, 255, 255, 0.16);
+    color: var(--ts-blanco);
+}
+
+.enlace-menu.activo {
+    background: var(--ts-blanco);
+    color: var(--ts-naranja);
+    border-color: var(--ts-celeste);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.pie-lateral {
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.zona-contenido {
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    padding: 26px 30px 48px 30px;
+}
+
+.barra-movil {
+    display: none;
+    background: var(--ts-naranja);
+    color: var(--ts-blanco);
+    padding: 12px 16px;
+}
+
+/* Botón principal naranja con foco celeste */
+.btn-tienda {
+    background-color: var(--ts-naranja);
+    color: var(--ts-blanco);
+    border: 2px solid transparent;
+    font-weight: 700;
+    border-radius: 9px;
+}
+
+.btn-tienda:hover, .btn-tienda:focus {
+    background-color: var(--ts-naranja-hover);
+    color: var(--ts-blanco);
+    border-color: var(--ts-celeste);
+}
+
+/* Vitrina de tarjetas */
+.tarjeta-item {
+    background: var(--ts-blanco);
+    border-radius: 14px;
+    border: 3px solid transparent;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tarjeta-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--ts-celeste);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+}
+
+.tarjeta-item.desactivada {
+    opacity: 0.62;
+    filter: grayscale(45%);
+}
+
+.cabecera-item {
+    padding: 14px 16px;
+    color: var(--ts-blanco);
+    background: linear-gradient(135deg, #2B2E34 0%, #434852 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cabecera-item.alerta-stock {
+    background: linear-gradient(135deg, #C92A2A 0%, #F37021 100%);
+}
+
+.etiqueta-codigo {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.18);
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+}
+
+.precio-grande {
+    font-size: 1.38rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.caja-blanca {
+    background: var(--ts-blanco);
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.caja-blanca-header {
+    padding: 16px 20px;
+    border-bottom: 2px solid #F1F3F5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--ts-celeste);
+    box-shadow: 0 0 0 0.2rem rgba(0, 195, 227, 0.25);
+}
+
+@media (max-width: 991.98px) {
+    .menu-lateral {
+        display: none;
+    }
+    .barra-movil {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .zona-contenido {
+        margin-left: 0;
+        width: 100%;
+        padding: 18px 14px 40px 14px;
+    }
+}
