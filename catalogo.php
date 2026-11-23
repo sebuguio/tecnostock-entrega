@@ -19,7 +19,6 @@ foreach ($productos as $prod) {
 ?>
 
 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
-    <div>
         <h2 class="fw-bold mb-1">Catálogo de Productos</h2>
         <div class="text-muted small">
             <strong><?= count($productos) ?></strong> artículos encontrados
@@ -27,11 +26,6 @@ foreach ($productos as $prod) {
                 · <span class="text-danger fw-bold"><i class="bi bi-exclamation-circle-fill"></i> <?= $cantAlertas ?> con alerta de stock bajo</span>
             <?php endif; ?>
         </div>
-    </div>
-    <div class="d-flex gap-2">
-        <a href="ficha_producto.php" class="btn btn-tienda"><i class="bi bi-plus-lg me-1"></i> Nuevo Producto</a>
-        <a href="kardex.php" class="btn btn-dark fw-bold rounded-3"><i class="bi bi-arrow-left-right me-1"></i> Entradas / Salidas</a>
-    </div>
 </div>
 
 <!-- Barra de búsqueda y filtros -->

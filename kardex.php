@@ -28,9 +28,14 @@ $tituloPagina = 'Entradas y Salidas - TecnoStock';
 require_once __DIR__ . '/vistas/plantilla_arriba.php';
 ?>
 
-<div class="mb-4">
-    <h2 class="fw-bold mb-1">Control de Movimientos (Kardex)</h2>
-    <div class="text-muted small">Cada entrada o salida actualiza el stock automáticamente dentro de una transacción PDO.</div>
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <div>
+        <h2 class="fw-bold mb-1">Control de Movimientos (Kardex)</h2>
+        <div class="text-muted small">Cada entrada o salida actualiza el stock automáticamente dentro de una transacción PDO.</div>
+    </div>
+    <a href="historial.php" class="btn btn-outline-dark fw-bold rounded-3">
+        <i class="bi bi-clock-history me-1"></i> Ver Historial Completo
+    </a>
 </div>
 
 <div class="row g-4">
@@ -80,7 +85,7 @@ require_once __DIR__ . '/vistas/plantilla_arriba.php';
         </div>
     </div>
 
-    <!-- Historial auditable -->
+    <!-- Historial auditable reciente -->
     <div class="col-lg-7">
         <div class="caja-blanca">
             <div class="caja-blanca-header">

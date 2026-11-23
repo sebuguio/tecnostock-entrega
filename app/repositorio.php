@@ -228,3 +228,37 @@ function listarMovimientosRecientes(int $limite = 50): array {
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+function listarTodosLosMovimientos(string $termino = '', string $tipo = ''): array {
+    $db = obtenerConexion();
+    $condiciones = [];
+    $parametros = [];
+
+    if ($termino !== '') {
+        $condiciones[] = "(p.codigo LIKE :t1 OR p.nombre LIKE :t2 OR m.observacion LIKE :t3 OR u.nombre LIKE :t4)";
+        $like = "%{$termino}%";
+        $parametros['t1'] = $like;
+        $parametros['t2'] = $like;
+        $parametros['t3'] = $like;
+        $parametros['t4'] = $like;
+    }
+
+    if (in_array($tipo, ['ENTRADA', 'SALIDA'], true)) {
+        $condiciones[] = "m.tipo = :tipo";
+        $parametros['tipo'] = $tipo;
+    }
+
+    $where = $condiciones ? ('WHERE ' . implode(' AND ', $condiciones)) : '';
+
+    $sql = "SELECT m.id_movimiento, m.fecha_hora, m.tipo, m.cantidad, m.observacion,
+                   p.codigo, p.nombre AS nombre_producto, u.nombre AS nombre_usuario
+            FROM movimientos m
+            INNER JOIN productos p ON p.id_producto = m.id_producto
+            INNER JOIN usuarios u ON u.id_usuario = m.id_usuario
+            {$where}
+            ORDER BY m.fecha_hora DESC, m.id_movimiento DESC";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute($parametros);
+    return $stmt->fetchAll();
+}

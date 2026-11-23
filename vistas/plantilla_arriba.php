@@ -39,6 +39,7 @@ $aviso = leerAviso();
         <a class="enlace-menu <?= $paginaActual === 'catalogo.php' ? 'activo' : '' ?>" href="catalogo.php"><i class="bi bi-grid-fill"></i> Catálogo</a>
         <a class="enlace-menu <?= $paginaActual === 'ficha_producto.php' ? 'activo' : '' ?>" href="ficha_producto.php"><i class="bi bi-plus-square-fill"></i> Nuevo Producto</a>
         <a class="enlace-menu <?= $paginaActual === 'kardex.php' ? 'activo' : '' ?>" href="kardex.php"><i class="bi bi-arrow-left-right"></i> Entradas y Salidas</a>
+        <a class="enlace-menu <?= $paginaActual === 'historial.php' ? 'activo' : '' ?>" href="historial.php"><i class="bi bi-clock-history"></i> Historial Completo</a>
         <a class="enlace-menu <?= $paginaActual === 'categorias.php' ? 'activo' : '' ?>" href="categorias.php"><i class="bi bi-tags-fill"></i> Categorías</a>
         <a class="enlace-menu <?= $paginaActual === 'usuarios.php' ? 'activo' : '' ?>" href="usuarios.php"><i class="bi bi-people-fill"></i> Usuarios</a>
         <hr class="border-white opacity-25 mt-auto">
@@ -63,6 +64,9 @@ $aviso = leerAviso();
             </a>
             <a class="enlace-menu <?= $paginaActual === 'kardex.php' ? 'activo' : '' ?>" href="kardex.php">
                 <i class="bi bi-arrow-left-right fs-5"></i> Entradas y Salidas
+            </a>
+            <a class="enlace-menu <?= $paginaActual === 'historial.php' ? 'activo' : '' ?>" href="historial.php">
+                <i class="bi bi-clock-history fs-5"></i> Historial Completo
             </a>
             <a class="enlace-menu <?= $paginaActual === 'categorias.php' ? 'activo' : '' ?>" href="categorias.php">
                 <i class="bi bi-tags-fill fs-5"></i> Categorías

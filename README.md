@@ -17,7 +17,7 @@ Este MVP web centraliza el catálogo, las categorías y el kardex de entradas/sa
 | **RF-03** | Consulta del catálogo con búsqueda por código, nombre o categoría | `catalogo.php`, `app/repositorio.php` (`buscarProductos`) |
 | **RF-04** | Desactivación lógica (sin borrado físico para conservar historial) | `estado_producto.php`, `app/repositorio.php` (`alternarEstadoProducto`) |
 | **RF-05** | Administración de categorías y usuarios | `categorias.php`, `usuarios.php` |
-| **RF-06** | Entradas y salidas con actualización automática y bloqueo de stock < 0 | `kardex.php`, `app/repositorio.php` (`aplicarMovimientoStock` con transacción PDO) |
+| **RF-06** | Entradas y salidas con actualización automática y bloqueo de stock < 0 | `kardex.php`, `historial.php`, `app/repositorio.php` (`aplicarMovimientoStock`, `listarTodosLosMovimientos`) |
 | **RF-07** | Alerta visual cuando `stock_actual < stock_minimo` | `catalogo.php` (banner rojo-naranja + filtro rápido "Solo bajo stock") |
 | **RF-08** | Doble validación cliente (JavaScript) y servidor (PHP) | `publico/js/validaciones.js` y control en PHP en cada vista |
 
@@ -26,6 +26,7 @@ Este MVP web centraliza el catálogo, las categorías y el kardex de entradas/sa
 - `vistas/`: Plantilla reutilizable (`plantilla_arriba.php`, `plantilla_abajo.php`).
 - `publico/`: Recursos estáticos (`css/tienda.css` estilo eShop y `js/validaciones.js`).
 - `bd/esquema_tecnostock.sql`: Script SQL reproducible con claves primarias, foráneas y restricciones `CHECK`/`UNIQUE`.
+- Vistas principales en raíz: `catalogo.php`, `ficha_producto.php`, `kardex.php`, `historial.php`, `categorias.php`, `usuarios.php`, `acceso.php`.
 
 ## 4. Puesta en Marcha Local (XAMPP)
 1. Copiar la carpeta `tecnostock` en `C:\xampp\htdocs\`.
@@ -44,4 +45,4 @@ Este MVP web centraliza el catálogo, las categorías y el kardex de entradas/sa
 | **CP-03** | Límite (RN-02) | Ingresar precio `-100` o cantidad `0` | `validaciones.js` bloquea envío y marca campo en rojo; PHP también lo rechaza. | Aprobado |
 | **CP-04** | Límite (RN-04) | Registrar salida de `10` unidades en `ALM-201` (Stock: `2`) | Transacción hace `rollBack()` y muestra error de stock insuficiente. | Aprobado |
 | **CP-05** | Normal (RF-07) | Salida válida que deja `stock_actual < stock_minimo` | Stock se actualiza automáticamente y la tarjeta cambia a alerta roja `¡Bajo Stock!`. | Aprobado |
-| **CP-06** | Integridad (RN-05) | Desactivar producto con movimientos asociados | Cambia `estado = 0` conservando sus registros en `movimientos`. | Aprobado |
+| **CP-06** | Integridad (RN-05) | Desactivar producto con movimientos asociados | Cambia `estado = 0` conservando sus registros en `historial.php`. | Aprobado |
