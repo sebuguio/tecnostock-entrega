@@ -6,7 +6,7 @@ TecnoStock comercializa accesorios tecnológicos y llevaba su catálogo en hojas
 Este MVP web centraliza el catálogo, las categorías y el kardex de entradas/salidas sobre una base de datos relacional MySQL ejecutada en servidor local (XAMPP), sin frameworks complejos, aplicando PHP 8 con PDO, HTML5, Bootstrap 5 y validaciones en cliente (JavaScript) y servidor (PHP).
 
 ### Actor Principal
-- **Encargado de inventario:** Administra el catálogo de productos, categorías, cuentas de acceso y el registro auditable de entradas y salidas de existencias.
+- **Encargado de inventario:** Administra el catálogo de productos, categorías y el registro auditable de entradas y salidas de existencias.
 
 ## 2. Trazabilidad de Requerimientos y Reglas de Negocio
 
@@ -16,7 +16,7 @@ Este MVP web centraliza el catálogo, las categorías y el kardex de entradas/sa
 | **RF-02** | Registro y edición de productos (código único, sin negativos) | `ficha_producto.php`, `app/repositorio.php` (`guardarProducto`) |
 | **RF-03** | Consulta del catálogo con búsqueda por código, nombre o categoría | `catalogo.php`, `app/repositorio.php` (`buscarProductos`) |
 | **RF-04** | Desactivación lógica (sin borrado físico para conservar historial) | `estado_producto.php`, `app/repositorio.php` (`alternarEstadoProducto`) |
-| **RF-05** | Administración de categorías y usuarios | `categorias.php`, `usuarios.php` |
+| **RF-05** | Administración de categorías | `categorias.php` |
 | **RF-06** | Entradas y salidas con actualización automática y bloqueo de stock < 0 | `kardex.php`, `historial.php`, `app/repositorio.php` (`aplicarMovimientoStock`, `listarTodosLosMovimientos`) |
 | **RF-07** | Alerta visual cuando `stock_actual < stock_minimo` | `catalogo.php` (banner rojo-naranja + filtro rápido "Solo bajo stock") |
 | **RF-08** | Doble validación cliente (JavaScript) y servidor (PHP) | `publico/js/validaciones.js` y control en PHP en cada vista |
@@ -26,7 +26,7 @@ Este MVP web centraliza el catálogo, las categorías y el kardex de entradas/sa
 - `vistas/`: Plantilla reutilizable (`plantilla_arriba.php`, `plantilla_abajo.php`).
 - `publico/`: Recursos estáticos (`css/tienda.css` estilo eShop y `js/validaciones.js`).
 - `bd/esquema_tecnostock.sql`: Script SQL reproducible con claves primarias, foráneas y restricciones `CHECK`/`UNIQUE`.
-- Vistas principales en raíz: `catalogo.php`, `ficha_producto.php`, `kardex.php`, `historial.php`, `categorias.php`, `usuarios.php`, `acceso.php`.
+- Vistas principales en raíz: `catalogo.php`, `ficha_producto.php`, `kardex.php`, `historial.php`, `categorias.php`, `acceso.php`.
 
 ## 4. Puesta en Marcha Local (XAMPP)
 1. Copiar la carpeta `tecnostock` en `C:\xampp\htdocs\`.

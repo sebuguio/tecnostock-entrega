@@ -114,12 +114,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST" data-validar="true" novalidate>
             <div class="mb-3">
                 <label class="form-label fw-bold small text-secondary">Correo electrónico</label>
-                <input type="email" name="correo" data-etiqueta="Correo" class="form-control" required value="admin@tecnostock.cl">
+                <input type="email" name="correo" data-etiqueta="Correo" class="form-control" required placeholder="Ingresa tu correo">
             </div>
             <div class="mb-4">
                 <label class="form-label fw-bold small text-secondary">Contraseña</label>
                 <input type="password" name="clave" data-etiqueta="Contraseña" class="form-control" required placeholder="Ingresa tu contraseña">
-                <div class="form-text small">Acceso inicial: <code>admin@tecnostock.cl</code> / <code>tecno123</code></div>
             </div>
             <button type="submit" class="btn btn-entrar w-100">
                 Ingresar al Sistema <i class="bi bi-arrow-right ms-1"></i>

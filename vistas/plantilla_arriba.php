@@ -41,7 +41,6 @@ $aviso = leerAviso();
         <a class="enlace-menu <?= $paginaActual === 'kardex.php' ? 'activo' : '' ?>" href="kardex.php"><i class="bi bi-arrow-left-right"></i> Entradas y Salidas</a>
         <a class="enlace-menu <?= $paginaActual === 'historial.php' ? 'activo' : '' ?>" href="historial.php"><i class="bi bi-clock-history"></i> Historial Completo</a>
         <a class="enlace-menu <?= $paginaActual === 'categorias.php' ? 'activo' : '' ?>" href="categorias.php"><i class="bi bi-tags-fill"></i> Categorías</a>
-        <a class="enlace-menu <?= $paginaActual === 'usuarios.php' ? 'activo' : '' ?>" href="usuarios.php"><i class="bi bi-people-fill"></i> Usuarios</a>
         <hr class="border-white opacity-25 mt-auto">
         <div class="small mb-2"><i class="bi bi-person-circle me-1"></i> <?= e($operador['nombre']) ?></div>
         <a href="salir.php" class="btn btn-light btn-sm fw-bold text-danger">Cerrar Sesión</a>
@@ -70,9 +69,6 @@ $aviso = leerAviso();
             </a>
             <a class="enlace-menu <?= $paginaActual === 'categorias.php' ? 'activo' : '' ?>" href="categorias.php">
                 <i class="bi bi-tags-fill fs-5"></i> Categorías
-            </a>
-            <a class="enlace-menu <?= $paginaActual === 'usuarios.php' ? 'activo' : '' ?>" href="usuarios.php">
-                <i class="bi bi-people-fill fs-5"></i> Usuarios
             </a>
         </nav>
 

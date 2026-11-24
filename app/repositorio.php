@@ -25,25 +25,6 @@ function buscarUsuarioPorCorreo(string $correo): ?array {
     return $fila ?: null;
 }
 
-function listarUsuarios(): array {
-    $db = obtenerConexion();
-    return $db->query("SELECT id_usuario, nombre, correo, estado FROM usuarios ORDER BY id_usuario ASC")->fetchAll();
-}
-
-function crearUsuario(string $nombre, string $correo, string $clavePlana): void {
-    $db = obtenerConexion();
-    $hash = password_hash($clavePlana, PASSWORD_DEFAULT);
-    $stmt = $db->prepare("INSERT INTO usuarios (nombre, correo, clave, estado) VALUES (?, ?, ?, 1)");
-    $stmt->execute([$nombre, $correo, $hash]);
-}
-
-function actualizarClaveUsuario(int $idUsuario, string $nuevaClave): void {
-    $db = obtenerConexion();
-    $hash = password_hash($nuevaClave, PASSWORD_DEFAULT);
-    $stmt = $db->prepare("UPDATE usuarios SET clave = ?, estado = 1 WHERE id_usuario = ?");
-    $stmt->execute([$hash, $idUsuario]);
-}
-
 /* ===================== CATEGORÍAS ===================== */
 
 function listarCategorias(bool $soloActivas = false): array {

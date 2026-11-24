@@ -18,14 +18,14 @@ foreach ($productos as $prod) {
 }
 ?>
 
-<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
-        <h2 class="fw-bold mb-1">Catálogo de Productos</h2>
-        <div class="text-muted small">
-            <strong><?= count($productos) ?></strong> artículos encontrados
-            <?php if ($cantAlertas > 0): ?>
-                · <span class="text-danger fw-bold"><i class="bi bi-exclamation-circle-fill"></i> <?= $cantAlertas ?> con alerta de stock bajo</span>
-            <?php endif; ?>
-        </div>
+<div class="mb-4">
+    <h2 class="fw-bold mb-1">Catálogo de Productos</h2>
+    <div class="text-muted small">
+        <strong><?= count($productos) ?></strong> artículos encontrados
+        <?php if ($cantAlertas > 0): ?>
+            · <span class="text-danger fw-bold"><i class="bi bi-exclamation-circle-fill"></i> <?= $cantAlertas ?> con alerta de stock bajo</span>
+        <?php endif; ?>
+    </div>
 </div>
 
 <!-- Barra de búsqueda y filtros -->
